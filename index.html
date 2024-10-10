@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼덕공원</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Nanum+Gothic:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const menu = document.getElementById("menu");
+            const nav = document.getElementsByTagName("nav")[0];
+            const close = () => {
+                nav.style.transition = "left 0.1s";
+                menu.textContent = "menu";
+                nav.style.left = "-110%";
+            }
+
+            menu.addEventListener("click", () => {
+                const t = menu.textContent
+                nav.style.transition = "left 0.5s";
+                if (t === "menu") {
+                    menu.textContent = "close";
+                    nav.style.left = 0;
+                } else {
+                    close()
+                }
+            });
+            nav.querySelectorAll("a").forEach(i => {
+                i.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const class1 = e.target.getAttribute("href").replace("#", ""); // 
+                    const class2 = document.querySelector(`.${class1}`);
+                    if (class2) {
+                        class2.scrollIntoView({ behavior: "smooth" }); // 
+                    }
+                    close()
+                });
+            });
+
+        });///////////////////////////
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 10pt;
+            line-height: 190%;
+        }
+
+        #layout {
+            width: 500px;
+            margin: auto;
+            border: 1px solid #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        header {
+            background: #499b00;
+            color: white;
+            display: flex;
+            padding: 10px;
+            /* width: 100%; */
+            justify-content: center;
+        }
+
+        button {
+            position: absolute;
+            left: 1%;
+            top: 0.3%;
+            background: none;
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 5px 5px;
+            /* border: 1px solid #000; */
+        }
+
+        #menu {
+            font-size: 3rem;
+        }
+
+        nav {
+            position: absolute;
+            width: 100%;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            line-height: 400%;
+            left: -110%;
+        }
+
+        nav a {
+            display: block;
+            border-bottom: 1px solid #999;
+            font-weight: bold;
+        }
+
+
+        main {
+            padding: 10px 0;
+            line-height: 160%;
+        }
+
+        h2 {
+            font-family: 'Gugi', cursive;
+        }
+
+        p::first-letter {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #499b00;
+        }
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        h2,
+        p {
+            padding: 0 10px;
+            /* text-align: justify; */
+        }
+
+        p img {
+            width: 60px;
+            /* float: left; */
+            margin-right: 15px;
+        }
+
+        #f1 {
+            padding-top: 5px;
+        }
+
+        img[alt="오른쪽그림"] {
+            width: 100px;
+            float: right;
+        }
+
+        #f2 {
+            margin: auto;
+            width: 95%;
+            /* text-align: center; */
+            padding: 0 1% 5%;
+            font-size: 0.8rem;
+        }
+
+        #f2 img {
+            margin-top: 20px;
+            border-radius: 20px;
+        }
+
+        .bg-1 {
+            width: 50%;
+            height: 120px;
+            background-image: url(images/bg.jpg);
+            float: left;
+        }
+
+        .content {
+            text-align: end;
+            color: #499b00;
+            width: 50%;
+            height: 120px;
+            display: block;
+            float: right;
+            padding-right: 20px;
+            line-height: 220%;
+        }
+
+        img[alt="왼쪽그림"] {
+            width: 100px;
+            float: left;
+        }
+
+        #f3 {
+            background: #e2ef97;
+            padding: 20px 10px;
+        }
+
+        #f3 h2 {
+            font-size: 1.2rem;
+        }
+
+        #f3 h2::before {
+            content: '\2618';
+            margin-right: 10px;
+            color: #499b00;
+        }
+
+        nav a::before {
+            content: '\2618';
+            margin-right: 10px;
+            color: #499b00;
+        }
+
+        #f3 p:not(:last-of-type) {
+            padding-bottom: 10px;
+        }
+
+        footer {
+            background: #ddd;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+
+
+        #up {
+            background: white;
+            position: fixed;
+            right: calc(((100% - 500px) / 2) + 10px);
+            bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            color: black;
+            font-weight: bold;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+        }
+
+        @media(max-width:500px) {
+            #up {
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="layout">
+        <button class="material-symbols-outlined" id="menu">menu</button>
+        <header>
+            <h1>
+                <ruby>
+                    삼덕 공원
+                    <rt>Samduck Park</rt>
+                </ruby>
+            </h1>
+        </header>
+        <nav>
+            <a href="#f1">삼덕공원 기부 이야기</a>
+            <a href="#f2">순조롭지 않았던 공원 개장</a>
+            <a href="#f3">현재의 삼덕공원</a>
+            <a href="#f4">안양 시민의 삶의 변화</a>
+        </nav>
+        <main>
+            <h2 id="f1" class="f1">삼덕공원 기부 이야기</h2>
+            <p>
+                <img src="images/samduck-1.jpg" alt="오른쪽그림">
+                2003년에 전재준 삼덕제지 회장은 350억원 이상에 달하는 삼덕제지 공장터를 시민을 위해 안양시에 무상으로 기부했다. 단 하나의 조건이라면 공장 굴뚝 만은 남겨 달라는 것이었다. 삼덕
+                공원은 그냥 평범해 보이지만 안양역 사거리에서 200미터 밖에 떨어지지 않은.. 말 그대로 안양시의 노른자위 땅이다. 이 자리에 집과 빌딩을 짓는다면 수백억원의 이익을 앉아서 벌 수 있는
+                곳이다.
+                .
+            </p>
+            <h2 id="f1" class="f2">순조롭지 않았던 공원 개장</h2>
+            <div class="bg-1"></div>
+            <div class="content">
+                1.지하 주차장 건설 계획<br>
+                2.약속한 굴뚝 보존 폐기<br>
+                3.방송 3사의 대서 특필<br>
+                4.굴뚝을 대신한 상징물 조성
+            </div>
+            <p>2003년에 공원 부지를 기부했지만 2009년이 되어서야 공원은 개장 할 수 있었다. 원래는 아무 조건 없이 시민들을 위한 공원 조성을 원했는데 안양시는 주민 편의 상 지하 주차장을
+                설치해야 한다면서 굴뚝도 철거를 해버렸다. 그래서 KBS, MBC, SBS 방송 3사에서 이 상황을 취재하고 기부자의 뜻과 다르게 추진 됨을 대서 특필 하였다. 결국 철거 된 굴뚝을
+                대신하여 굴뚝 모양의 상징물이 세워지고, 지하 주차장은 없던일로 마무리 되었다. (이후 2020년 지하주차장은 완공되었고 현재 운영중)
+            </p>
+            <h2 id="f1" class="f3">현재의 삼덕공원</h2>
+            <figure id="f2">
+                <p>공원에는 언제나 많은 분들이 산책을 하고 운동도하고 아이들과 어르신들의 놀이터가 되었다. 따듯한 날에는 더욱 많은 시민들이 이곳을 찾아서 휴식을 취한다. 밤에는 은은한 조명으로
+                    은은한 안양의 밤을 비춘다. 공원 옆으로 흐르는 수암천은 자전거 도로와 산책로로 조성되어 안양 시민의 건강을 책임지고 있다.</p>
+                <img src="images/samduck-2.jpg" alt="큰그림">
+            </figure>
+            <h2 id="f1" class="f4">안양 시민의 삶의 변화</h2>
+            <p>
+                <img src="images/samduck-3.jpg" alt="왼쪽그림">
+                이곳이 불과 몇년전 까지만 해도 공장이 있던 자리였고, 높은 담이 둘러처져 있던 곳이라고는 믿을 수 없는 멋진 공원이 조성 되면서 주변 도로도 2차선에서 4차선으로 확장 되었다. 연기와
+                분진 대신 신선한 나무와 풀냄새가 가득한 피톤치드는 안양 시민의 삶을 더욱 풍요롭게 해주고 있다.
+            </p>
+            <aside id="f3">
+                <h2>삼덕 공원 기부 이야기</h2>
+                <p>공원 건설 조건으로 350억원 부지 기증</p>
+                <h2>순조롭지 않았던 공원 개장</h2>
+                <p>굴뚝 철거와 지하 주차장 건설 계획</p>
+                <h2>안양 시민의 삶의 변화</h2>
+                <p>연기와 분진 대신 신선한 나무와 풀냄새가 가득</p>
+            </aside>
+        </main>
+        <footer>
+            어느 기업인이 실천한 나눔 삼덕 공원
+        </footer>
+        <a href="#top" id="up" class="material-symbols-outlined">stat_1</a>
+    </div>
+</body>
+
+</html>
